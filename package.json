@@ -1,0 +1,17 @@
+{
+  "name": "flipi.uiclient",
+  "version": "1.0.0",
+  "description": "Web client to use flipi data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "3.8.3",
+    "vue": "2.6.11",
+    "webpack": "4.42.1"
+  }
+}

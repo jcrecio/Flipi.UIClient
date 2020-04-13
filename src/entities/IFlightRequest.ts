@@ -1,4 +1,5 @@
-interface IFlightRequest {
+export interface IFlightRequest {
+    requestId: string;
     from: string;
     to: string;
     dateFrom: string;

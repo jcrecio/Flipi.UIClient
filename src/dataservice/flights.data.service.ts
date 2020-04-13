@@ -1,14 +1,8 @@
+import { IFlightsDataService } from './IFlights.data.service';
 import { IFlightRequest } from '../entities/IFlightRequest';
-export interface IFlight {
-    requestId: string;
-    reference: string;
-    from: string;
-    to: string;
-    date: string;
-    price: number;
-}
+import { IFlight } from '../entities/IFlight';
 
-export class a {
+export class FlightsDataService implements IFlightsDataService {
     getFlightRequests(): IFlightRequest[] {
         return <IFlightRequest[]>[
             {

@@ -1,20 +1,9 @@
 {
     "compilerOptions": {
-        "target": "es5",
-        //"module": "es2015",
-        "moduleResolution": "node",
-        "noImplicitAny": false,
-        "removeComments": true,
-        "preserveConstEnums": true,
-        "outFile": "build.js",
-        "sourceMap": true
-    },
-    "include": [
-        "src/index.ts",
-        "src/**/*"
-    ],
-    "exclude": [
-        "node_modules",
-        "**/*.spec.ts"
-    ]
-}
+      "target": "es5",
+      "module": "commonjs",
+      "sourceMap": true,
+      "skipLibCheck": true,
+      "experimentalDecorators": true
+    }
+  }

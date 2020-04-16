@@ -1,7 +1,9 @@
+// import { injectable } from 'inversify-props'
 import { IFlightsDataService } from './IFlights.data.service';
 import { IFlightRequest } from '../entities/IFlightRequest';
 import { IFlight } from '../entities/IFlight';
 
+// @injectable()
 export class FlightsDataService implements IFlightsDataService {
     getFlightRequests(): IFlightRequest[] {
         return <IFlightRequest[]>[
@@ -51,32 +53,37 @@ export class FlightsDataService implements IFlightsDataService {
             }
         ];
     }
-    getFlights(): IFlight[] {
-        return <IFlight[]>[
-            {
-                reference: 'UX1094',
-                requestId: '1',
-                from: 'AMS',
-                to: 'MAD',
-                date: new Date('06/15/2020').toLocaleDateString(),
-                price: 45
-            },
-            {
-                reference: 'UX1094',
-                requestId: '1',
-                from: 'AMS',
-                to: 'MAD',
-                date: new Date('07/14/2020').toLocaleDateString(),
-                price: 67
-            },
-            {
-                reference: 'UX1094',
-                requestId: '1',
-                from: 'AMS',
-                to: 'MAD',
-                date: new Date('07/16/2020').toLocaleDateString(),
-                price: 103
-            },
+    getFlights(id: String): IFlight[] {
+        if (id == '1'){
+            return <IFlight[]>[
+                {
+                    reference: 'UX1094',
+                    requestId: '1',
+                    from: 'AMS',
+                    to: 'MAD',
+                    date: new Date('06/15/2020').toLocaleDateString(),
+                    price: 45
+                },
+                {
+                    reference: 'UX1094',
+                    requestId: '1',
+                    from: 'AMS',
+                    to: 'MAD',
+                    date: new Date('07/14/2020').toLocaleDateString(),
+                    price: 67
+                },
+                {
+                    reference: 'UX1094',
+                    requestId: '1',
+                    from: 'AMS',
+                    to: 'MAD',
+                    date: new Date('07/16/2020').toLocaleDateString(),
+                    price: 103
+                }
+            ];
+        }
+        else if (id == '2') {
+            return <IFlight[]>[
             {
                 reference: 'UX1094',
                 requestId: '2',
@@ -92,7 +99,7 @@ export class FlightsDataService implements IFlightsDataService {
                 to: 'YIA',
                 date: new Date('12/07/2020').toLocaleDateString(),
                 price: 540
-            }
-        ];
+            }];
+        }
     }
 }

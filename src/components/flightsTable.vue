@@ -4,22 +4,21 @@
       <div class="wrap-table100">
         <div class="table">
           <div class="row header">
+            <div class="cell">Request</div>
+            <div class="cell">Flight</div>
             <div class="cell">From</div>
             <div class="cell">To</div>
-            <div class="cell">From date</div>
-            <div class="cell">To date</div>
-            <div class="cell">Min price</div>
-            <div class="cell">Max price</div>
-            <div class="cell">Hits</div>
+            <div class="cell">Date</div>
+            <div class="cell">Price</div>
           </div>
-          <div class="row" v-bind:key="flightRequest.requestId" v-for="flightRequest in flightRequests">
-            <div class="cell" data-title="From">
-              <div>{{ flightRequest.from }}</div>
+          <div class="row" v-bind:key="flight.flightReference" v-for="flight in flights">
+            <div class="cell" data-title="Request">
+              <div>{{ flight.requestId }}</div>
               <div class="small-description"></div>
             </div>
-            <div class="cell" data-title="To">{{ flightRequest.to }}</div>
-            <div class="cell" data-title="Since">{{ flightRequest.dateFrom }}</div>
-            <div class="cell" data-title="To">{{ flightRequest.dateTo }}</div>
+            <div class="cell" data-title="Reference">{{ flight.reference }}</div>
+            <div class="cell" data-title="From">{{ flight.from }}</div>
+            <div class="cell" data-title="To">{{ flight.to }}</div>
             <div
               class="cell"
               data-title="MinPrice"
@@ -38,17 +37,17 @@
   </div>
 </template>
 <script>
-import serviceProvider from "../providers/service.provider";
-const flightsDataService = serviceProvider.get('flightsDataService');
-
+  import serviceProvider from "../providers/service.provider";
+  const flightsDataService = serviceProvider.get('flightsDataService');
 export default {
   props: {
-    requests: Array
+    requestId: String,
+    flights: Array
   },
   // inject: ['flightsDataService'],
   data() {
     return {
-      flightRequests: flightsDataService.getFlightRequests()
+      flightsForSelectedRequest: flightsDataService.getFlights(this.$route.params.id) 
     };
   }
 };

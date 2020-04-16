@@ -3,5 +3,5 @@ import { IFlight } from '../entities/IFlight';
 
 export interface IFlightsDataService {
     getFlightRequests(): IFlightRequest[];
-    getFlights(): IFlight[];
+    getFlights(id: String): IFlight[];
 }

@@ -1,42 +1,61 @@
 <template>
   <div id="app">
-    <header id="flipiHeader">
+    <header id="">
       <img
         id="logo"
         class="header-logo"
         style="vertical-align:middle"
-        src="logo1.png"
-        height="28"
-        width="54"
+        src="./assets/logo.png"
+        height="20"
+        width="44"
       />
       <span>{{ title }}</span>
     </header>
 
-    <requestsTable v-bind:requests="flightRequests"></requestsTable>
+    <router-view></router-view>
+    <!-- <requestsTable v-bind:requests="flightRequests"></requestsTable>
+    <flightsTable  v-bind:requests="flightsForSelectedRequest"></flightsTable> -->
   </div>
 </template>
 
 <script>
-  import requestsTable from "./components/requestsTable";
-  import flightsDataService from "./providers/service.provider";
-
   export default {
-    components: {
-      requestsTable
-    },
-    provide: { 
-      getFlightRequests: flightsDataService.getFlightRequests()
-    },
     data() {
       return {
-        title: "flipi",
-        flightRequests: flightsDataService.getFlightRequests()
+        title: "flipi"
       };
     }
   };
 </script>
 
 <style>
+@font-face {
+  font-family: Poppins-Regular;
+  src: url("./fonts/fonts/poppins/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url("./fonts/fonts/poppins/Poppins-Bold.ttf");
+}
+
+#header {
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  padding: 5px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  height: 3em;
+  line-height: 3em;
+  box-shadow: 0 0 0.15em 0 rgba(0, 0, 0, 0.1);
+}
+
+#logo {
+  height: 30px;
+  width: 50px;
+}
 .fs-1 {
   font-size: 1px;
 }

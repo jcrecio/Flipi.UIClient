@@ -1,9 +1,7 @@
-// import { injectable } from 'inversify-props'
 import { IFlightsDataService } from './IFlights.data.service';
 import { IFlightRequest } from '../entities/IFlightRequest';
 import { IFlight } from '../entities/IFlight';
 
-// @injectable()
 export class FlightsDataService implements IFlightsDataService {
     getFlightRequests(): IFlightRequest[] {
         return <IFlightRequest[]>[

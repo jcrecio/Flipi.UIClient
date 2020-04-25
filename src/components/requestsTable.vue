@@ -30,7 +30,11 @@
               data-title="MaxPrice"
               style="text-align: center"
             >{{ flightRequest.maxPrice }}</div>
-            <div class="cell" data-title="Hits" style="text-align: center">{{ flightRequest.hits }}</div>
+            <div 
+              class="cell" 
+              data-title="Hits" 
+              style="text-align: center"
+              v-on:click="openFlights(flightRequest.requestId)">{{ flightRequest.hits }}</div>
           </div>
         </div>
       </div>
@@ -42,13 +46,12 @@ import serviceProvider from "../providers/service.provider";
 const flightsDataService = serviceProvider.get('flightsDataService');
 
 export default {
-  props: {
-    requests: Array
-  },
-  // inject: ['flightsDataService'],
   data() {
     return {
-      flightRequests: flightsDataService.getFlightRequests()
+      flightRequests: flightsDataService.getFlightRequests(),
+      openFlights(id){
+        this.$router.push({ name: 'flights', params: { id } });
+      }
     };
   }
 };
@@ -143,7 +146,7 @@ iframe {
 .limiter {
   width: 100%;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 0px;
 }
 
 .container-table100 {

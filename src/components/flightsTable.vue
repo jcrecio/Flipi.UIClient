@@ -11,7 +11,7 @@
             <div class="cell">Date</div>
             <div class="cell">Price</div>
           </div>
-          <div class="row" v-bind:key="flight.flightReference" v-for="flight in flights">
+          <div class="row" v-bind:key="flight.flightReference" v-for="flight in flightsForSelectedRequest">
             <div class="cell" data-title="Request">
               <div>{{ flight.requestId }}</div>
               <div class="small-description"></div>
@@ -21,15 +21,10 @@
             <div class="cell" data-title="To">{{ flight.to }}</div>
             <div
               class="cell"
-              data-title="MinPrice"
+              data-title="Date"
               style="text-align: center"
-            >{{ flightRequest.minPrice }}</div>
-            <div
-              class="cell"
-              data-title="MaxPrice"
-              style="text-align: center"
-            >{{ flightRequest.maxPrice }}</div>
-            <div class="cell" data-title="Hits" style="text-align: center">{{ flightRequest.hits }}</div>
+            >{{ flight.date }}</div>
+            <div class="cell" data-title="Hits" style="text-align: center">{{ flight.price }}</div>
           </div>
         </div>
       </div>
@@ -40,14 +35,9 @@
   import serviceProvider from "../providers/service.provider";
   const flightsDataService = serviceProvider.get('flightsDataService');
 export default {
-  props: {
-    requestId: String,
-    flights: Array
-  },
-  // inject: ['flightsDataService'],
   data() {
     return {
-      flightsForSelectedRequest: flightsDataService.getFlights(this.$route.params.id) 
+      flightsForSelectedRequest: flightsDataService.getFlights(this.$route.params.id)
     };
   }
 };
@@ -142,7 +132,7 @@ iframe {
 .limiter {
   width: 100%;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 0px;
 }
 
 .container-table100 {

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header id="">
+    <header>
       <img
         id="logo"
         class="header-logo"
@@ -11,10 +11,7 @@
       />
       <span>{{ title }}</span>
     </header>
-
     <router-view></router-view>
-    <!-- <requestsTable v-bind:requests="flightRequests"></requestsTable>
-    <flightsTable  v-bind:requests="flightsForSelectedRequest"></flightsTable> -->
   </div>
 </template>
 
